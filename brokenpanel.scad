@@ -121,6 +121,17 @@ module oppsemicirlholes()
     }
 }
 
+module centerbighole()
+{
+    $fa=0.1;
+    $fs=0.05;
+    translate([41/2-21.8/2, 27/2-12.6/2, -epsilon])
+    {
+        cube([21.8, 12.6, 3.95+2*epsilon]);
+    }
+    // TODO: handle the rounded corners
+}
+
 
 module brokenpanel()
 {
@@ -147,6 +158,7 @@ module brokenpanel()
         {
             oppsemicirlholes();
         }
+        #centerbighole();
     }
 }
 
