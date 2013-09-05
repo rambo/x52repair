@@ -24,7 +24,7 @@ TAU = 6.2831853071; //2*PI, see http://tauday.com/
 PI = TAU/2;
 
 /************************/
-
+use <roundCornersCube.scad>
 
 module axleholder()
 {
@@ -125,13 +125,12 @@ module centerbighole()
 {
     $fa=0.1;
     $fs=0.05;
-    translate([41/2-21.8/2, 27/2-12.6/2, -epsilon])
+    translate([41/2, 27/2, 3.95/2-epsilon])
     {
-        cube([21.8, 12.6, 3.95+2*epsilon]);
+        roundCornersCube(21.8, 12.6, 3.95+3*epsilon, 5);
     }
-    // TODO: handle the rounded corners
 }
-
+//centerbighole();
 
 module brokenpanel()
 {
@@ -158,7 +157,7 @@ module brokenpanel()
         {
             oppsemicirlholes();
         }
-        #centerbighole();
+        centerbighole();
     }
 }
 
