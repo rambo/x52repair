@@ -23,12 +23,16 @@ Contact: s.vilches.e@gmail.com
 
 
 module createMeniscus(h,radius) // This module creates the shape that needs to be substracted from a cube to make its corners rounded.
-difference(){        //This shape is basicly the difference between a quarter of cylinder and a cube
-   translate([radius/2+0.1,radius/2+0.1,0]){
-      cube([radius+0.2,radius+0.1,h+0.2],center=true);         // All that 0.x numbers are to avoid "ghost boundaries" when substracting
-   }
-
-   cylinder(h=h+0.2,r=radius,$fn = 25,center=true);
+{
+    $fa=0.1;
+    $fs=0.05;
+    difference(){        //This shape is basicly the difference between a quarter of cylinder and a cube
+       translate([radius/2+0.1,radius/2+0.1,0]){
+          cube([radius+0.2,radius+0.1,h+0.2],center=true);         // All that 0.x numbers are to avoid "ghost boundaries" when substracting
+       }
+    
+       cylinder(h=h+0.2,r=radius,center=true);
+    }
 }
 
 
