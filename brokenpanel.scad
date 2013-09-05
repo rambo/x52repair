@@ -107,23 +107,47 @@ module semicirclethingy_whole()
         #semicirclethingy_screwhole();
     }
 }
-semicirclethingy_whole();
+//semicirclethingy_whole();
 
-module brokenpanel()
+module oppsemicirlholes()
 {
-    union()
+    semicirclethingy_screwhole();
+    translate([0,27,0])
     {
-        cube([41,27,1.95]);
-        axleholder();
-        translate([7.0,0,0])
+        mirror([0,1,0])
         {
-            oppsemicirl();
-        }
-        translate([41-7.0-8.2,0,0])
-        {
-            oppsemicirl();
+            semicirclethingy_screwhole();
         }
     }
 }
 
-//brokenpanel();
+
+module brokenpanel()
+{
+    difference()
+    {
+        union()
+        {
+            cube([41,27,1.95]);
+            axleholder();
+            translate([7.0,0,0])
+            {
+                oppsemicirl();
+            }
+            translate([41-7.0-8.2,0,0])
+            {
+                oppsemicirl();
+            }
+        }
+        translate([7.0,0,0])
+        {
+            oppsemicirlholes();
+        }
+        translate([41-7.0-8.2,0,0])
+        {
+            oppsemicirlholes();
+        }
+    }
+}
+
+brokenpanel();
