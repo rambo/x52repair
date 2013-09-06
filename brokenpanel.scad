@@ -134,6 +134,8 @@ module centerbighole()
 
 module brokenpanel()
 {
+    $fa=0.1;
+    $fs=0.05;
     difference()
     {
         union()
@@ -158,6 +160,14 @@ module brokenpanel()
             oppsemicirlholes();
         }
         centerbighole();
+        translate([4.2+1.7/2, 7.2+1.7/2, -epsilon])
+        {
+            cylinder(r=1.7/2, h=3.95+2*epsilon);
+        }
+        translate([41-(4.2+1.7/2), 27-(6.8+1.7/2), -epsilon])
+        {
+            cylinder(r=1.7/2, h=3.95+2*epsilon);
+        }
     }
 }
 
